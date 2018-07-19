@@ -1,12 +1,16 @@
-import { LOGIN_REQUEST, LOGIN_REQUEST_FAILED, LOGIN_REQUEST_SUCCEDED } from '../actions/LOGINTypes';
+import {
+	LOGIN_REQUEST,
+	LOGIN_REQUEST_FAILED,
+	LOGIN_REQUEST_SUCCEDED
+} from '../../actions/login/loginActionTypes';
 
 const initialState = {
-    requesting: null,
-    requested: null
+	requesting: null,
+	requested: null
 };
 
-export default function(state = initialState, action) {
-	switch (action.type){
+export default function (state = initialState, action) {
+	switch (action.type) {
 		case LOGIN_REQUEST:
 			return {
 				...state,
