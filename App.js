@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { Provider } from 'react-redux';
 import store from './src/store'
 
@@ -11,7 +11,7 @@ export default class App extends Component {
 			<Provider store={store}>
 				<View style={styles.container}>
 					<Text style={styles.welcome}>EduRising</Text>
-					<View><LoginPage /></View>
+					<LoginPage />
 				</View>
 			</Provider>
 		);
@@ -21,18 +21,15 @@ export default class App extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: '#F5FCFF',
+		padding: 10,
+		backgroundColor: '#1f3b81',
 	},
 	welcome: {
-		fontSize: 20,
+		fontSize: 36,
 		textAlign: 'center',
-		margin: 10,
-	},
-	instructions: {
-		textAlign: 'center',
-		color: '#333333',
-		marginBottom: 5,
+		fontFamily: 'monospace',
+		color: '#FFFFFF',
+		paddingTop: Dimensions.get('window').height * 0.2,
+		paddingBottom: Dimensions.get('window').height * 0.2,
 	},
 });
