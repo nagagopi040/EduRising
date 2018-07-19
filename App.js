@@ -3,12 +3,15 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import { Provider } from 'react-redux';
 import store from './src/store'
 
+import LoginPage from './src/containers/login/LoginPage'
+
 export default class App extends Component {
 	render() {
 		return (
 			<Provider store={store}>
 				<View style={styles.container}>
 					<Text style={styles.welcome}>EduRising</Text>
+					<View><LoginPage /></View>
 				</View>
 			</Provider>
 		);
