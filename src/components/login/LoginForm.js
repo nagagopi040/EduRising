@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View, Image, TextInput, Button, TouchableHighlight } from 'react-native';
+import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
+
 import loginStyles from '../../stylesheets/loginStyles'
 var usernameIcon = require('../../images/username_icon.png')
 var passwordIcon = require('../../images/password_icon.png')
@@ -13,13 +14,6 @@ class LoginFrom extends Component {
         }
     }
 
-    onSubmit() {
-        console.log('Success')
-    }
-    signUp(){
-        consol.log('signUp')
-    }
-
     render(){
         return(
             <View>
@@ -29,7 +23,7 @@ class LoginFrom extends Component {
                         autoCorrect={false}
                         placeholder=" Username"
                         autoFocus={false}
-                        underlineColorAndroid={'#ffffff'}
+                        underlineColorAndroid={'transparent'}
                         // inlineImageLeft={usernameIcon}
                     />
                 </View>
@@ -39,17 +33,24 @@ class LoginFrom extends Component {
                         autoCorrect={false}
                         placeholder=" Password"
                         autoFocus={false}
-                        underlineColorAndroid={'#ffffff'}
+                        underlineColorAndroid={'transparent'}
                         // inlineImageLeft={passwordIcon}
                     />
                 </View>
-                <Button title='SIGN IN' color="#1f90cc" onPress={this.onSubmit} />
-                <Text>Forgot Password?</Text>
-                <View>
-                    <Text>Don't have Account?</Text>
-                    <TouchableHighlight onPress={this.sigUp}>
-                        <Text>SignUp</Text>
-                    </TouchableHighlight>
+                <TouchableOpacity
+                    style={loginStyles.signinButtonContainer}
+                    onPress={this.props.onSubmit}
+                    underlayColor='#fff'>
+                    <Text style={loginStyles.signinButtonText}>SIGN IN</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this.props.handleForgotPassword} style={loginStyles.forgotPasswordTouchable}>
+                    <Text style={loginStyles.forgotPassword}y>Forgot Password ?</Text>
+                </TouchableOpacity>
+                <View style={loginStyles.signUp}>
+                    <Text style={loginStyles.newAccount}>Don't have Account ?</Text>
+                    <TouchableOpacity onPress={this.props.handleSignUp} >
+                        <Text style={loginStyles.signUpButton}>SIGN UP</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         )

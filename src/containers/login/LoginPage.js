@@ -6,12 +6,21 @@ import LoginForm from '../../components/login/LoginForm'
 
 class LoginPage extends Component {
     onSubmit(){
-        console.log('Success')
+        console.log('logged in successfully')
     }
+
+    handleForgotPassword(){
+        console.log('navigate to forgot password')
+    }
+    handleSignUp () {
+        console.log('navigate to sign up page')
+    }
+    
+
     render() {
         return(
             <View>
-                <LoginForm onSubmit={this.onSubmit}/>
+                <LoginForm onSubmit={this.onSubmit} handleForgotPassword={this.handleForgotPassword} handleSignUp={this.handleSignUp} />
             </View>
         )
     }

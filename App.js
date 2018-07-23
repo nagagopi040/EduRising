@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from './src/store'
 
 import LoginPage from './src/containers/login/LoginPage'
+import styles from './src/stylesheets/commonStyles'
 
 export default class App extends Component {
 	render() {
@@ -17,19 +18,3 @@ export default class App extends Component {
 		);
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		padding: 10,
-		backgroundColor: '#1f3b81',
-	},
-	welcome: {
-		fontSize: 36,
-		textAlign: 'center',
-		fontFamily: 'monospace',
-		color: '#FFFFFF',
-		paddingTop: Dimensions.get('window').height * 0.2,
-		paddingBottom: Dimensions.get('window').height * 0.2,
-	},
-});
