@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
-
+import { withNavigation } from 'react-navigation'
 import loginStyles from '../../stylesheets/loginStyles'
+
 var usernameIcon = require('../../images/username_icon.png')
 var passwordIcon = require('../../images/password_icon.png')
 
-class LoginFrom extends Component {
+class LoginForm extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -16,45 +17,53 @@ class LoginFrom extends Component {
 
     render(){
         return(
-            <View>
+            <View style={loginStyles.container}>
+                <Text style={loginStyles.title}>EduRising</Text>
                 <View style={loginStyles.label}>
+                    <Image source={require('../../images/username_icon.png')} style={loginStyles.icon} />
                     <TextInput
                         style={loginStyles.usernametextinput}
                         autoCorrect={false}
                         placeholder=" Username"
                         autoFocus={false}
                         underlineColorAndroid={'transparent'}
-                        // inlineImageLeft={usernameIcon}
+                        inlineImagePadding={10}
+                        inlineImageLeft='usernameIcon'
                     />
                 </View>
                 <View style={loginStyles.label}>
+                    <Image source={require('../../images/password_icon.png')} style={loginStyles.icon}/>
                     <TextInput 
                         style={loginStyles.usernametextinput}
                         autoCorrect={false}
                         placeholder=" Password"
                         autoFocus={false}
                         underlineColorAndroid={'transparent'}
-                        // inlineImageLeft={passwordIcon}
+                        inlineImageLeft='passwordIcon'
                     />
                 </View>
-                <TouchableOpacity
+                <TouchableHighlight
                     style={loginStyles.signinButtonContainer}
-                    onPress={this.props.onSubmit}
-                    underlayColor='#fff'>
+                    onPress={ () => this.props.navigation.navigate('Home') }
+                    underlayColor='#1f90cc'>
                     <Text style={loginStyles.signinButtonText}>SIGN IN</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={this.props.handleForgotPassword} style={loginStyles.forgotPasswordTouchable}>
+                </TouchableHighlight>
+                <TouchableHighlight 
+                    onPress={this.props.handleForgotPassword}
+                    underlayColor='transparent'>
                     <Text style={loginStyles.forgotPassword}y>Forgot Password ?</Text>
-                </TouchableOpacity>
+                </TouchableHighlight>
                 <View style={loginStyles.signUp}>
                     <Text style={loginStyles.newAccount}>Don't have Account ?</Text>
-                    <TouchableOpacity onPress={this.props.handleSignUp} >
+                    <TouchableHighlight
+                        onPress={this.props.handleSignUp} 
+                        underlayColor='transparent'>
                         <Text style={loginStyles.signUpButton}>SIGN UP</Text>
-                    </TouchableOpacity>
+                    </TouchableHighlight>
                 </View>
             </View>
         )
     }
 }
 
-export default (LoginFrom)
+export default withNavigation(LoginForm)

@@ -1,18 +1,45 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
 export default styles = StyleSheet.create({
+    container: {
+		padding: 10,
+        backgroundColor: '#1f3b81',
+        height: Dimensions.get('window').height
+	},
+	title: {
+		fontSize: 36,
+		textAlign: 'center',
+		fontFamily: 'monospace',
+		color: '#FFFFFF',
+		paddingTop: Dimensions.get('window').height * 0.15,
+		paddingBottom: Dimensions.get('window').height * 0.2,
+	},
 	label: {
         flexDirection: 'row',
-        padding: 5,
-        paddingRight: 20,
-        paddingLeft: 20,
+        paddingRight: 10,
+        paddingLeft: 10,
+        backgroundColor: '#FFFFFF',
+        marginBottom: 10,
+        marginLeft: 20,
+        marginRight: 20,
+        borderColor: '#FFFFFF',
+        borderRadius: 25,
+        borderWidth: 1,
+
     },
     usernametextinput: {
         backgroundColor: '#FFFFFF',
         flexDirection: 'column',
-        borderWidth:1,
         flex: 1,
+        borderColor: '#FFFFFF',
         borderRadius: 25,
+        borderWidth: 1,
+    },
+    icon: {
+        width: 20,
+        height: 20,
+        alignItems: 'center',
+        top: 15,
     },
     signinButtonContainer: {
         flexDirection:'column',
@@ -34,16 +61,13 @@ export default styles = StyleSheet.create({
     forgotPassword: {
         textAlign: 'center',
         color: "#FFFFFF",
-        paddingTop: 20,
-    },
-    forgotPasswordTouvhable: {
-        
+        paddingTop: Dimensions.get('window').height * 0.03,
     },
     signUp: {
         flexDirection: 'row',
         alignContent: 'center',
         justifyContent: 'center',
-        paddingTop: Dimensions.get('window').height * 0.1,
+        paddingTop: Dimensions.get('window').height * 0.06,
     },
     newAccount: {
         color: '#FFFFFF',
