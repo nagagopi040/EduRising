@@ -10,6 +10,11 @@ Object.defineProperty(global, "GLOBAL", {
     enumerable: true,
     value: global
 });
+// Prevent leaking process.versions from debugger process to
+// worker because pure React Native doesn't do that and some packages as js-md5 rely on this behavior
+Object.defineProperty(process, "versions", {
+    value: undefined
+});
 
 var vscodeHandlers = {
     'vscode_reloadApp': function () {
@@ -54,11 +59,9 @@ var importScripts = (function(){
 
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 /* global __fbBatchedBridge, self, importScripts, postMessage, onmessage: true */

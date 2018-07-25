@@ -5,12 +5,31 @@ import LandingPage from '../components/landingpage/Landingpage'
 import ExamsPage from '../components/exams/Exams'
 
 export default RootStack = createStackNavigator({
-    Login: LoginPage,
-    Home: LandingPage,
-    Exams: ExamsPage,
-}, {
-    initialRouteName: 'Login',
-    navigationOptions: {
-        header: null,
+    Login: {
+        screen: LoginPage,
+        navigationOptions: {
+            header: null,
+        },
     },
+    Home: {
+        screen: LandingPage,
+        navigationOptions: {
+            header: null,
+        }
+    },
+    Exams: {
+        screen: ExamsPage,
+        navigationOptions: {
+            title: 'Exams',
+            headerStyle: {
+                backgroundColor: '#1f3b81',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+            },
+        }
+    },
+}, {
+    initialRouteName: 'Login'
 });
