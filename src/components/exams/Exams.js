@@ -1,18 +1,8 @@
 import React, { Component } from 'react'
 import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation'
 
 class Exams extends Component {
-    static navigationOptions = {
-        title: 'Exams',
-        headerLeft: (
-            <Button
-              onPress={() => this.props.navigation.goBack()}
-              title="Back"
-              color="#fff"
-            />
-        ),
-    };
-
     render() {
         return (
             <View>
@@ -22,4 +12,4 @@ class Exams extends Component {
     }
 }
 
-export default Exams
+export default withNavigation(Exams)
