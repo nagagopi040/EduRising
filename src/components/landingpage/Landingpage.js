@@ -12,7 +12,7 @@ class Landingpage extends Component {
         return(
             <View style={homeStyles.container}>
                 <ProfileInfo />
-                <View style={{flexDirection: 'row', flex: 1, flexWrap: 'wrap'}}>
+                <View style={homeStyles.titlesWrap}>
                     {data.map( entry => {
                         return(
                             <TouchableHighlight
