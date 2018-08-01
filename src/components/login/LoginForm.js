@@ -10,9 +10,22 @@ class LoginForm extends Component {
     constructor(props){
         super(props)
         this.state = {
-            Username: '',
-            Password: '',
+            username: '',
+            password: '',
         }
+    }
+
+    onSubmit = (navigation) => {
+        this.props.onSubmit(this.state.username, this.state.password)
+        navigation.navigate('Home', { userDetails: this.props.newProps.userDetails})
+    }
+
+    handleUsernameChange = (text) => {
+        this.setState({ username : text })
+    }
+
+    handlePasswordChange = (text) => {
+        this.setState({ password : text })
     }
 
     render(){
@@ -24,11 +37,10 @@ class LoginForm extends Component {
                     <TextInput
                         style={loginStyles.usernametextinput}
                         autoCorrect={false}
-                        placeholder=" Username"
+                        placeholder="Username"
                         autoFocus={false}
                         underlineColorAndroid={'transparent'}
-                        inlineImagePadding={10}
-                        inlineImageLeft='usernameIcon'
+                        onChangeText={this.handleUsernameChange}
                     />
                 </View>
                 <View style={loginStyles.label}>
@@ -36,15 +48,16 @@ class LoginForm extends Component {
                     <TextInput 
                         style={loginStyles.usernametextinput}
                         autoCorrect={false}
-                        placeholder=" Password"
+                        placeholder="Password"
                         autoFocus={false}
                         underlineColorAndroid={'transparent'}
-                        inlineImageLeft='passwordIcon'
+                        onChangeText={this.handlePasswordChange}
                     />
                 </View>
+                <Text>{!this.props.requesting ? "Loading" : null}</Text>
                 <TouchableHighlight
                     style={loginStyles.signinButtonContainer}
-                    onPress={ () => this.props.navigation.navigate('Home') }
+                    onPress={ () => this.onSubmit(this.props.navigation) }
                     underlayColor='#1f90cc'>
                     <Text style={loginStyles.signinButtonText}>SIGN IN</Text>
                 </TouchableHighlight>

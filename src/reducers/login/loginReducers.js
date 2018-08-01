@@ -21,14 +21,12 @@ export default function (state = initialState, action) {
 				...state,
 				requesting: false,
 				requested: true,
-				LOGIN: action.payload
 			};
 		case LOGIN_REQUEST_FAILED:
 			return {
 				...state,
 				requesting: false,
 				requested: false,
-				error: action.error
 			}
 		default:
 			return state;

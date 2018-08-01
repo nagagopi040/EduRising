@@ -1,9 +1,8 @@
-import {
-    LOGIN_REQUEST
-} from './loginActionTypes';
+import { LOGIN_REQUEST } from './loginActionTypes';
 
-export function getProducts() {
+export function loginAuth(userCredentials) {
     return {
         type: LOGIN_REQUEST,
+        userCredentials: userCredentials
     }
 }

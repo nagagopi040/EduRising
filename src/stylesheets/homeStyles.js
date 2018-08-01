@@ -15,6 +15,10 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         margin: 20
     },
+    titlesWrap: {
+        flexDirection: 'row',
+        flexWrap: 'wrap'
+    },
     title: {
         flexDirection: 'column',
         justifyContent: 'center',
