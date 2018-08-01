@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from '../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react'
 import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
-import { withNavigation } from 'react-navigation'
+import { withNavigation } from '../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react-navigation'
 import loginStyles from '../../stylesheets/loginStyles'
 
 var usernameIcon = require('../../images/username_icon.png')
@@ -15,9 +15,12 @@ class LoginForm extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps){
+        navigation.navigate('Home', { userDetails: nextProps.userDetails})
+    }
+
     onSubmit = (navigation) => {
         this.props.onSubmit(this.state.username, this.state.password)
-        navigation.navigate('Home', { userDetails: this.props.newProps.userDetails})
     }
 
     handleUsernameChange = (text) => {
@@ -54,7 +57,7 @@ class LoginForm extends Component {
                         onChangeText={this.handlePasswordChange}
                     />
                 </View>
-                <Text>{!this.props.requesting ? "Loading" : null}</Text>
+                <Text>{this.props.requesting ? "Loading" : null}</Text>
                 <TouchableHighlight
                     style={loginStyles.signinButtonContainer}
                     onPress={ () => this.onSubmit(this.props.navigation) }
