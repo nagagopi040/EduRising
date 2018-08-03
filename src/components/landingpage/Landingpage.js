@@ -9,6 +9,8 @@ const data = ['Exams', 'TimeTable', 'HomeWork', 'Attendance', 'Events', 'Fees', 
 
 class Landingpage extends Component {
     render() {
+        const userInfo = this.props.navigation.state
+        console.log("userInfo", userInfo)
         return(
             <View style={homeStyles.container}>
                 <ProfileInfo />

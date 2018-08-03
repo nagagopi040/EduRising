@@ -77,5 +77,10 @@ export default styles = StyleSheet.create({
         color: '#2e91c7',
         textAlign: 'center',
         paddingLeft: 10,
+    },
+    serverError: {
+        textAlign: 'center',
+        fontSize: 16,
+        color: 'red'
     }
 });
