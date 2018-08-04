@@ -8,10 +8,26 @@ import { loginAuth } from '../../actions/login/loginActions'
 import LoginForm from '../../components/login/LoginForm'
 
 class LoginPage extends Component {
+    constructor(){
+        super()
+        this.state={
+            serverError: null,
+        }
+    }
+
     handleSubmit = (username, password) => {
         var userCredentials = { username, password }
         this.props.loginAuth(userCredentials);
-        // this.forceUpdate()
+        this.forceUpdate()
+    }
+    componentWillReceiveProps(nextProps){
+        if(nextProps.serverError){
+            this.setState({
+                serverError: nextProps.serverError
+            })
+        } else {
+            this.props.navigation.navigate('Home', {userDetails: nextProps.userDetails})
+        }
     }
 
     handleForgotPassword = () => {
@@ -21,15 +37,25 @@ class LoginPage extends Component {
         console.log('navigate to sign up page')
     }
 
+    handleUsernameChange = (error) => {
+        this.setState({ serverError: '' })
+    }
+
+    handlePasswordChange = (error) => {
+        this.setState({ serverError: '' })
+    }
+
     render() {
         return(
             <View>
                 <LoginForm
-                    newProps= {this.props}
-                    userDetails={this.props.userDetails}
+                    {...this.props}
+                    Error={this.state.serverError}
                     onSubmit={this.handleSubmit}
                     handleForgotPassword={this.handleForgotPassword}
-                    handleSignUp={this.handleSignUp} />
+                    handleSignUp={this.handleSignUp}
+                    handleUsernameChange={this.handleUsernameChange}
+                    handlePasswordChange={this.handlePasswordChange} />
             </View>
         )
     }
@@ -38,11 +64,14 @@ class LoginPage extends Component {
 LoginPage.propTypes = {
     loginAuth: PropTypes.func.isRequired,
     userDetails: PropTypes.object,
-    message: PropTypes.string
+    message: PropTypes.string,
+    serverError: PropTypes.string
 }
 
 const mapStateToProps = state => ({
-	userDetails : state.login.userDetails
+    userDetails : state.login.userDetails,
+    message: state.login.message,
+    serverError: state.login.serverError,
 })
 
 const mapDispatchToProps = dispatch => ({

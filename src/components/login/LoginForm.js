@@ -1,6 +1,6 @@
-import React, { Component } from '../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react'
+import React, { Component } from 'react'
 import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
-import { withNavigation } from '../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react-navigation'
+import { withNavigation } from 'react-navigation'
 import loginStyles from '../../stylesheets/loginStyles'
 
 var usernameIcon = require('../../images/username_icon.png')
@@ -12,23 +12,29 @@ class LoginForm extends Component {
         this.state = {
             username: '',
             password: '',
+            serverError: null
         }
     }
 
     componentWillReceiveProps(nextProps){
-        navigation.navigate('Home', { userDetails: nextProps.userDetails})
+        if(nextProps.serverError)
+            this.setState({
+                serverError: nextProps.serverError ? nextProps.serverError : null
+            })
     }
 
-    onSubmit = (navigation) => {
+    onSubmit = () => {
         this.props.onSubmit(this.state.username, this.state.password)
     }
 
-    handleUsernameChange = (text) => {
-        this.setState({ username : text })
+    onUsernameChange = (text) => {
+        this.setState({ username : text, serverError : null })
+        this.props.handleUsernameChange(null)
     }
 
-    handlePasswordChange = (text) => {
-        this.setState({ password : text })
+    onPasswordChange = (text) => {
+        this.setState({ password : text, serverError: null })
+        this.props.handlePasswordChange(null)
     }
 
     render(){
@@ -43,7 +49,8 @@ class LoginForm extends Component {
                         placeholder="Username"
                         autoFocus={false}
                         underlineColorAndroid={'transparent'}
-                        onChangeText={this.handleUsernameChange}
+                        onChangeText={this.onUsernameChange}
+                        returnKeyType='go'
                     />
                 </View>
                 <View style={loginStyles.label}>
@@ -52,15 +59,17 @@ class LoginForm extends Component {
                         style={loginStyles.usernametextinput}
                         autoCorrect={false}
                         placeholder="Password"
+                        secureTextEntry={true}
                         autoFocus={false}
                         underlineColorAndroid={'transparent'}
-                        onChangeText={this.handlePasswordChange}
+                        onChangeText={this.onPasswordChange}
+                        returnKeyType='go'
                     />
                 </View>
-                <Text>{this.props.requesting ? "Loading" : null}</Text>
+                <Text style={loginStyles.serverError}>{this.props.Error ==='' ? null : this.state.serverError}</Text>
                 <TouchableHighlight
                     style={loginStyles.signinButtonContainer}
-                    onPress={ () => this.onSubmit(this.props.navigation) }
+                    onPress={ () => this.onSubmit(this.state.username, this.state.password) }
                     underlayColor='#1f90cc'>
                     <Text style={loginStyles.signinButtonText}>SIGN IN</Text>
                 </TouchableHighlight>
