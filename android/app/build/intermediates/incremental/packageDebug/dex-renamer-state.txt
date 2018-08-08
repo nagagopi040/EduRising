@@ -1,4 +1,4 @@
-#Wed Jul 25 12:42:47 IST 2018
-base.0=C\:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Wed Aug 08 10:47:00 IST 2018
+base.0=C\:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
-file.0=C\:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.0=C\:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

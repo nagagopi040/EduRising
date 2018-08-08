@@ -11,14 +11,13 @@ class LoginPage extends Component {
     constructor(){
         super()
         this.state={
-            serverError: null,
+            serverError: '',
         }
     }
 
     handleSubmit = (username, password) => {
         var userCredentials = { username, password }
         this.props.loginAuth(userCredentials);
-        this.forceUpdate()
     }
     componentWillReceiveProps(nextProps){
         if(nextProps.serverError){
@@ -50,7 +49,6 @@ class LoginPage extends Component {
             <View>
                 <LoginForm
                     {...this.props}
-                    Error={this.state.serverError}
                     onSubmit={this.handleSubmit}
                     handleForgotPassword={this.handleForgotPassword}
                     handleSignUp={this.handleSignUp}

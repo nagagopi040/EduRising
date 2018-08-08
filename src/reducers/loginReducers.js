@@ -18,7 +18,8 @@ export default function (state = initialState, action) {
 				requesting: false,
 				requested: true,
 				userDetails: action.userDetails,
-				serverError: null
+				serverError: action.serverError,
+				status: action.status,
 			};
 		case LOGIN_REQUEST_FAILED:
 			return {
@@ -27,7 +28,7 @@ export default function (state = initialState, action) {
 				requested: false,
 				userDetails: {},
 				serverError: action.serverError,
-				message: action.message,
+				status: action.status,
 			}
 		default:
 			return state;

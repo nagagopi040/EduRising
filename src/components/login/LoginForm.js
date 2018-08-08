@@ -12,7 +12,7 @@ class LoginForm extends Component {
         this.state = {
             username: '',
             password: '',
-            serverError: null
+            serverError: '',
         }
     }
 
@@ -73,7 +73,7 @@ class LoginForm extends Component {
                     underlayColor='#1f90cc'>
                     <Text style={loginStyles.signinButtonText}>SIGN IN</Text>
                 </TouchableHighlight>
-                <TouchableHighlight 
+                <TouchableHighlight
                     onPress={this.props.handleForgotPassword}
                     underlayColor='transparent'>
                     <Text style={loginStyles.forgotPassword}y>Forgot Password ?</Text>

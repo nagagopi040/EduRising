@@ -11,12 +11,15 @@ export function* loginAuth(action) {
             yield put({
                 type: LOGIN_REQUEST_SUCCEDED,
                 userDetails: res.data.userInfo ? res.data.userInfo : {},
+                serverError: '',
+                status: "success",
+
             })
         else
             yield put({
                 type: LOGIN_REQUEST_FAILED,
                 serverError: res.data.serverError,
-                message: "Authentication Failed",
+                status: "fail", 
             })
     } catch (error) {
         yield put({
