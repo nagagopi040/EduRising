@@ -6,55 +6,66 @@ import { bindActionCreators } from 'redux';
 
 import { loginAuth } from '../../actions/login/loginActions'
 import LoginForm from '../../components/login/LoginForm'
+import auth from '../../utilities/auth'
+import CONSTANT from '../../utilities/constant'
 
 class LoginPage extends Component {
     constructor(){
         super()
         this.state={
+            username: '',
+            password: '',
             serverError: '',
         }
     }
 
-    handleSubmit = (username, password) => {
-        var userCredentials = { username, password }
-        this.props.loginAuth(userCredentials);
-    }
     componentWillReceiveProps(nextProps){
         if(nextProps.serverError){
             this.setState({
                 serverError: nextProps.serverError
             })
         } else {
-            this.props.navigation.navigate('Home', {userDetails: nextProps.userDetails})
+            auth.onSignIn(CONSTANT.AUTHENTICATION.AUTH_TOKEN, [{ username : this.state.username , password : this.state.password }] ).then( res => {
+                this.props.navigation.navigate('HomeRouter')
+            })
         }
+    }
+
+    handleSubmit = (username, password) => {
+        var userCredentials = { username, password }
+        this.setState({
+            username: username,
+            password: password,
+        })
+        this.props.loginAuth(userCredentials)
     }
 
     handleForgotPassword = () => {
         console.log('navigate to forgot password')
     }
+    
     handleSignUp = () => {
         console.log('navigate to sign up page')
     }
 
     handleUsernameChange = (error) => {
-        this.setState({ serverError: '' })
+        this.setState({ serverError: error })
     }
 
     handlePasswordChange = (error) => {
-        this.setState({ serverError: '' })
+        this.setState({ serverError: error })
     }
 
     render() {
         return(
-            <View>
-                <LoginForm
-                    {...this.props}
-                    onSubmit={this.handleSubmit}
-                    handleForgotPassword={this.handleForgotPassword}
-                    handleSignUp={this.handleSignUp}
-                    handleUsernameChange={this.handleUsernameChange}
-                    handlePasswordChange={this.handlePasswordChange} />
-            </View>
+            <LoginForm
+                {...this.props}
+                serverError={this.state.serverError}
+                onSubmit={this.handleSubmit}
+                handleForgotPassword={this.handleForgotPassword}
+                handleSignUp={this.handleSignUp}
+                handleUsernameChange={this.handleUsernameChange}
+                handlePasswordChange={this.handlePasswordChange} />
         )
     }
 }
@@ -68,8 +79,8 @@ LoginPage.propTypes = {
 
 const mapStateToProps = state => ({
     userDetails : state.login.userDetails,
-    message: state.login.message,
     serverError: state.login.serverError,
+    status: state.login.status
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -1,21 +1,22 @@
-import { createStackNavigator } from 'react-navigation';
-import React from 'react'
-import { TouchableHighlight, Text, Dimensions, View } from 'react-native'
+import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import { Dimensions } from 'react-native'
 
 import LoginPage from '../containers/login/LoginPage'
-import LandingPage from '../components/landingpage/Landingpage'
+import HomePage from '../components/home/Homepage'
 import Exams from '../components/exams/Exams'
-import styles from '../stylesheets/commonStyles'
 
-export default RootStack = createStackNavigator({
+export const LoginRouter  = createStackNavigator({
     Login: {
         screen: LoginPage,
         navigationOptions: {
             header: null,
         },
-    },
+    }
+})
+
+export const HomeRouter = createStackNavigator({
     Home: {
-        screen: LandingPage,
+        screen: HomePage,
         navigationOptions: {
             header: null,
         }
@@ -36,17 +37,19 @@ export default RootStack = createStackNavigator({
                 marginLeft: Dimensions.get('window').width * 0.4,
             },
             headerBackTitle: 'Back',
-            // headerLeft: (
-            //     <TouchableHighlight
-            //         onPress={() => navigation.goBack()}
-            //         underlayColor={'#444444'}
-            //         style={styles.backButton}>
-            //             <Text style={styles.backButtonText}>Back </Text>
-            //     </TouchableHighlight>
-            // ),
-            // headerRight: (<View />)
         })
     },
-}, {
-    initialRouteName: 'Login'
 });
+
+export const rootNavigation = (signedIn = false) =>{
+    return createSwitchNavigator({
+        LoginRouter: {
+            screen: LoginRouter
+        },
+        HomeRouter: {
+            screen : HomeRouter
+        }
+    },{
+        initialRouteName: signedIn ? "HomeRouter" : "LoginRouter"
+    })
+}

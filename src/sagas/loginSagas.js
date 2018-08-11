@@ -6,7 +6,6 @@ import { LOGIN_REQUEST_FAILED, LOGIN_REQUEST_SUCCEDED } from '../actions/login/l
 export function* loginAuth(action) {
     try {
         const res = yield call(axios.post, 'http://10.100.100.200:8080/users/auth', action.userCredentials)
-        console.log(action.userCredentials, res.data)
         if(!res.data.serverError)
             yield put({
                 type: LOGIN_REQUEST_SUCCEDED,

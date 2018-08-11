@@ -10,7 +10,7 @@ export default function (state = initialState, action) {
 		case LOGIN_REQUEST:
 			return {
 				...state,
-				requesting: true
+				requesting: true,
 			};
 		case LOGIN_REQUEST_SUCCEDED:
 			return {

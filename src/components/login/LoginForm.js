@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TextInput, TouchableHighlight, KeyboardAvoidingView  } from 'react-native';
 import { withNavigation } from 'react-navigation'
 import loginStyles from '../../stylesheets/loginStyles'
 
@@ -12,15 +12,7 @@ class LoginForm extends Component {
         this.state = {
             username: '',
             password: '',
-            serverError: '',
         }
-    }
-
-    componentWillReceiveProps(nextProps){
-        if(nextProps.serverError)
-            this.setState({
-                serverError: nextProps.serverError ? nextProps.serverError : null
-            })
     }
 
     onSubmit = () => {
@@ -28,18 +20,19 @@ class LoginForm extends Component {
     }
 
     onUsernameChange = (text) => {
-        this.setState({ username : text, serverError : null })
-        this.props.handleUsernameChange(null)
+        this.setState({ username : text })
+        this.props.handleUsernameChange('')
     }
 
     onPasswordChange = (text) => {
-        this.setState({ password : text, serverError: null })
-        this.props.handlePasswordChange(null)
+        this.setState({ password : text })
+        this.props.handlePasswordChange('')
     }
 
     render(){
         return(
             <View style={loginStyles.container}>
+                <KeyboardAvoidingView  behavior="padding" enabled>
                 <Text style={loginStyles.title}>EduRising</Text>
                 <View style={loginStyles.label}>
                     <Image source={require('../../images/username_icon.png')} style={loginStyles.icon} />
@@ -50,7 +43,9 @@ class LoginForm extends Component {
                         autoFocus={false}
                         underlineColorAndroid={'transparent'}
                         onChangeText={this.onUsernameChange}
-                        returnKeyType='go'
+                        returnKeyType='next'
+                        onSubmitEditing={() => { this.passwordTextInput.focus() }}
+                        blurOnSubmit={false}
                     />
                 </View>
                 <View style={loginStyles.label}>
@@ -64,9 +59,12 @@ class LoginForm extends Component {
                         underlineColorAndroid={'transparent'}
                         onChangeText={this.onPasswordChange}
                         returnKeyType='go'
+                        ref={(passwordInput) => { this.passwordTextInput = passwordInput }}
+
+
                     />
                 </View>
-                <Text style={loginStyles.serverError}>{this.props.Error ==='' ? null : this.state.serverError}</Text>
+                <Text style={loginStyles.serverError}>{this.props.serverError === '' ? null : this.props.serverError}</Text>
                 <TouchableHighlight
                     style={loginStyles.signinButtonContainer}
                     onPress={ () => this.onSubmit(this.state.username, this.state.password) }
@@ -86,6 +84,7 @@ class LoginForm extends Component {
                         <Text style={loginStyles.signUpButton}>SIGN UP</Text>
                     </TouchableHighlight>
                 </View>
+                </KeyboardAvoidingView>
             </View>
         )
     }
