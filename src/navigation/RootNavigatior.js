@@ -1,9 +1,10 @@
 import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import { Dimensions } from 'react-native'
 
-import LoginPage from '../containers/login/LoginPage'
+import LoginPage from '../components/login/LoginForm'
 import HomePage from '../components/home/Homepage'
 import Exams from '../components/exams/Exams'
+import LoginForm from '../components/login/LoginForm';
 
 export const LoginRouter  = createStackNavigator({
     Login: {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation'
-import CryptoJS from 'crypto-js'
+import { connect } from 'react-redux'
 
 import API from '../../utilities/api'
 import ProfileInfo from './ProfileInfo'
@@ -14,22 +14,17 @@ const data = ['Exams', 'TimeTable', 'HomeWork', 'Attendance', 'Events', 'Fees', 
 class HomePage extends Component {
     constructor() {
         super()
-        this.state ={
-            credentials : {}
+        this.state = {
+            credentials : {},
+            userdata : {},
         }
     }
     componentDidMount() {
         auth.getTheTokens(CONSTANT.AUTHENTICATION.AUTH_TOKEN).then( res => {
+            console.log(res)
                 if(res !=null){
                     this.setState({ credentials : res[0] })
-                    API.getUserInfo(`http://10.100.100.200:8080/users/info${this.state.credentials}`).then(res => {
-                        if(res != null){
-                            this.setState({
-                                userdata : res.data
-                            })
-                            console.log(res)
-                        }
-                    })
+                    
                 } else {
                     return null;
                 }
@@ -38,9 +33,23 @@ class HomePage extends Component {
             })
     }
 
+     fetchUserData = (credentials) => {
+        API.getApiCall(`http://192.168.1.5:8080/users/info${credentials}`)
+            .then(dataset => {
+                if(dataset != null){
+                    this.setState({
+                        userdata : dataset.data
+                    })
+                }
+            })
+            .catch( err => {
+                this.setState({ error : err })
+            })
+        }
+
     render() {
         const { credentials } = this.state
-        console.log(credentials)
+        const userdata = this.fetchUserData(credentials)
         return(
             <View style={homeStyles.container}>
                 <ProfileInfo />
@@ -65,4 +74,4 @@ class HomePage extends Component {
     }
 }
 
-export default withNavigation(HomePage)
+export default connect()(withNavigation(HomePage))

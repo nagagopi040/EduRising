@@ -1,15 +1,29 @@
 import axios from 'axios'
 
 const API = {
-    getUserInfo: (url) => {
-        axios.get(url).then(res => {
-            if(res != null)
-                return res
-            else
+    async getApiCall(url){
+        try {
+            var data = await (url);
+            if(data != null){
+                return data;
+            } else {
                 return null
-        }).catch(err => {
-            console.log(err)
-        })
+            }
+        } catch(err) {
+            return err
+        }
+    },
+    async postApiCall(url, data){
+        try{
+            var res = await (url, data)
+            if(data != null){
+                return true
+            } else {
+                return false
+            }
+        }catch(err){
+            return err
+        }
     }
 }
 

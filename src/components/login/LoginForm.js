@@ -1,38 +1,61 @@
 import React, { Component } from 'react'
 import { Text, View, Image, TextInput, TouchableHighlight, KeyboardAvoidingView  } from 'react-native';
 import { withNavigation } from 'react-navigation'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+
+import { loginAuth } from '../../actions/login/loginActions'
+import auth from '../../utilities/auth'
+import CONSTANT from '../../utilities/constant'
 import loginStyles from '../../stylesheets/loginStyles'
 
-var usernameIcon = require('../../images/username_icon.png')
-var passwordIcon = require('../../images/password_icon.png')
-
 class LoginForm extends Component {
-    constructor(props){
-        super(props)
+    constructor(){
+        super()
         this.state = {
-            username: '',
-            password: '',
+            username : '',
+            password : '',
+            serverError : ''
         }
     }
 
-    onSubmit = () => {
-        this.props.onSubmit(this.state.username, this.state.password)
+    componentWillReceiveProps(nextProps){
+        if(nextProps.serverError){
+            this.setState({
+                serverError: nextProps.serverError
+            })
+        } else {
+            auth.onSignIn(CONSTANT.AUTHENTICATION.AUTH_TOKEN, { username : this.state.username , password : this.state.password } ).then( res => {
+                this.props.navigation.navigate('HomeRouter', res)
+            })
+        }
+    }
+
+    handleSubmit = (username, password) => {
+        var userCredentials = { username, password }
+        this.props.loginAuth(userCredentials)
+    }
+
+    handleForgotPassword = () => {
+        console.log('navigate to forgot password')
+    }
+    
+    handleSignUp = () => {
+        console.log('navigate to sign up page')
     }
 
     onUsernameChange = (text) => {
-        this.setState({ username : text })
-        this.props.handleUsernameChange('')
+        this.setState({ username : text, serverError : '' })
     }
 
     onPasswordChange = (text) => {
-        this.setState({ password : text })
-        this.props.handlePasswordChange('')
+        this.setState({ password : text, serverError : '' })
     }
 
     render(){
         return(
             <View style={loginStyles.container}>
-                <KeyboardAvoidingView  behavior="padding" enabled>
+                <KeyboardAvoidingView  behavior="position" enabled>
                 <Text style={loginStyles.title}>EduRising</Text>
                 <View style={loginStyles.label}>
                     <Image source={require('../../images/username_icon.png')} style={loginStyles.icon} />
@@ -60,26 +83,24 @@ class LoginForm extends Component {
                         onChangeText={this.onPasswordChange}
                         returnKeyType='go'
                         ref={(passwordInput) => { this.passwordTextInput = passwordInput }}
-
-
                     />
                 </View>
-                <Text style={loginStyles.serverError}>{this.props.serverError === '' ? null : this.props.serverError}</Text>
+                <Text style={loginStyles.serverError}>{this.state.serverError === '' ? null : this.state.serverError}</Text>
                 <TouchableHighlight
                     style={loginStyles.signinButtonContainer}
-                    onPress={ () => this.onSubmit(this.state.username, this.state.password) }
+                    onPress={ () => this.handleSubmit(this.state.username, this.state.password) }
                     underlayColor='#1f90cc'>
                     <Text style={loginStyles.signinButtonText}>SIGN IN</Text>
                 </TouchableHighlight>
                 <TouchableHighlight
-                    onPress={this.props.handleForgotPassword}
+                    onPress={this.handleForgotPassword}
                     underlayColor='transparent'>
                     <Text style={loginStyles.forgotPassword}y>Forgot Password ?</Text>
                 </TouchableHighlight>
                 <View style={loginStyles.signUp}>
                     <Text style={loginStyles.newAccount}>Don't have Account ?</Text>
                     <TouchableHighlight
-                        onPress={this.props.handleSignUp} 
+                        onPress={this.handleSignUp} 
                         underlayColor='transparent'>
                         <Text style={loginStyles.signUpButton}>SIGN UP</Text>
                     </TouchableHighlight>
@@ -90,4 +111,14 @@ class LoginForm extends Component {
     }
 }
 
-export default withNavigation(LoginForm)
+const mapStateToProps = state => ({
+    userDetails : state.login.userDetails,
+    serverError: state.login.serverError,
+    status: state.login.status
+})
+
+const mapDispatchToProps = dispatch => ({
+    loginAuth: bindActionCreators(loginAuth, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withNavigation(LoginForm))
