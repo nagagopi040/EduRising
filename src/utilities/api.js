@@ -3,9 +3,9 @@ import axios from 'axios'
 const API = {
     async getApiCall(url){
         try {
-            var data = await (url);
-            if(data != null){
-                return data;
+            var res = await axios.get(url);
+            if(res != null){
+                return res;
             } else {
                 return null
             }
@@ -15,8 +15,8 @@ const API = {
     },
     async postApiCall(url, data){
         try{
-            var res = await (url, data)
-            if(data != null){
+            var res = await axios.post(url, data)
+            if(res != null){
                 return true
             } else {
                 return false

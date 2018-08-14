@@ -3,6 +3,13 @@ import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpac
 import { withNavigation } from 'react-navigation'
 
 class Exams extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+
+        }
+    }
+    
     render() {
         return (
             <View>

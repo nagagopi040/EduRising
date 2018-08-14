@@ -4,28 +4,25 @@ const USER_KEY = "username";
 const PASS_KEY = "password";
 
 const auth = {
-    async onSignIn (key, item) {
+    async onSignIn(key, item) {
         try {
-            var jsonOfItem = await AsyncStorage.setItem(key, JSON.stringify(item))
-            if(jsonOfItem != null){
-                return jsonOfItem;
-            } else {
-                return null;
-            }
+            await AsyncStorage.setItem(key, JSON.stringify(item))
+            return true
         } catch (err) {
-            console.log(err.message)
+            return err
         }
+        return
     },
     async onSignOut(key) {
         try {
-          await AsyncStorage.removeItem(key);
-          return true;
+            await AsyncStorage.removeItem(key);
+            return true;
+        } catch (exception) {
+            return exception;
         }
-        catch(exception) {
-          return false;
-        }
+        return
     },
-    async isSignedIn (key) {
+    async isSignedIn(key) {
         try {
             const retrievedItem =  await AsyncStorage.getItem(key);
             const item = JSON.parse(retrievedItem);
@@ -34,11 +31,12 @@ const auth = {
             } else {
                 return false
             }
-        } catch (err) {
-            console.log(err.message)
+        } catch (exception) {
+            return false
         }
+        return
     },
-    async getTheTokens (key) {
+    async getTheToken(key) {
         try {
             const retrievedItem =  await AsyncStorage.getItem(key);
             const item = JSON.parse(retrievedItem);
@@ -47,9 +45,10 @@ const auth = {
             } else {
                 return false
             }
-        } catch (err) {
-            console.log(err.message)
+        } catch (exception) {
+            return exception
         }
+        return
     },
 }
 

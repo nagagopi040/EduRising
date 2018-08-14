@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image, TextInput, TouchableHighlight, KeyboardAvoidingView  } from 'react-native';
+import { Text, View, Image, TextInput, TouchableHighlight, KeyboardAvoidingView, ActivityIndicator } from 'react-native';
 import { withNavigation } from 'react-navigation'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
@@ -9,9 +9,12 @@ import auth from '../../utilities/auth'
 import CONSTANT from '../../utilities/constant'
 import loginStyles from '../../stylesheets/loginStyles'
 
+const username_icon = require('../../images/username_icon.png')
+const password_icon = require('../../images/password_icon.png')
+
 class LoginForm extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             username : '',
             password : '',
@@ -19,102 +22,94 @@ class LoginForm extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps){
-        if(nextProps.serverError){
-            this.setState({
-                serverError: nextProps.serverError
+    navigateToHome = (access_token) => {
+        auth.onSignIn(CONSTANT.AUTHENTICATION.ACCESS_TOKEN, access_token)
+            .then( res => {
+                if(res){
+                    this.props.navigation.navigate('Home')
+                }
             })
-        } else {
-            auth.onSignIn(CONSTANT.AUTHENTICATION.AUTH_TOKEN, { username : this.state.username , password : this.state.password } ).then( res => {
-                this.props.navigation.navigate('HomeRouter', res)
+            .catch(err => {
+                this.setState({
+                    serverError: err.message
+                })
             })
-        }
     }
 
     handleSubmit = (username, password) => {
         var userCredentials = { username, password }
         this.props.loginAuth(userCredentials)
     }
-
-    handleForgotPassword = () => {
-        console.log('navigate to forgot password')
-    }
     
-    handleSignUp = () => {
-        console.log('navigate to sign up page')
-    }
-
-    onUsernameChange = (text) => {
-        this.setState({ username : text, serverError : '' })
-    }
-
-    onPasswordChange = (text) => {
-        this.setState({ password : text, serverError : '' })
-    }
-
     render(){
+        const { access_token, requesting } = this.props
         return(
             <View style={loginStyles.container}>
-                <KeyboardAvoidingView  behavior="position" enabled>
-                <Text style={loginStyles.title}>EduRising</Text>
-                <View style={loginStyles.label}>
-                    <Image source={require('../../images/username_icon.png')} style={loginStyles.icon} />
-                    <TextInput
-                        style={loginStyles.usernametextinput}
-                        autoCorrect={false}
-                        placeholder="Username"
-                        autoFocus={false}
-                        underlineColorAndroid={'transparent'}
-                        onChangeText={this.onUsernameChange}
-                        returnKeyType='next'
-                        onSubmitEditing={() => { this.passwordTextInput.focus() }}
-                        blurOnSubmit={false}
-                    />
-                </View>
-                <View style={loginStyles.label}>
-                    <Image source={require('../../images/password_icon.png')} style={loginStyles.icon}/>
-                    <TextInput 
-                        style={loginStyles.usernametextinput}
-                        autoCorrect={false}
-                        placeholder="Password"
-                        secureTextEntry={true}
-                        autoFocus={false}
-                        underlineColorAndroid={'transparent'}
-                        onChangeText={this.onPasswordChange}
-                        returnKeyType='go'
-                        ref={(passwordInput) => { this.passwordTextInput = passwordInput }}
-                    />
-                </View>
-                <Text style={loginStyles.serverError}>{this.state.serverError === '' ? null : this.state.serverError}</Text>
-                <TouchableHighlight
-                    style={loginStyles.signinButtonContainer}
-                    onPress={ () => this.handleSubmit(this.state.username, this.state.password) }
-                    underlayColor='#1f90cc'>
-                    <Text style={loginStyles.signinButtonText}>SIGN IN</Text>
-                </TouchableHighlight>
-                <TouchableHighlight
-                    onPress={this.handleForgotPassword}
-                    underlayColor='transparent'>
-                    <Text style={loginStyles.forgotPassword}y>Forgot Password ?</Text>
-                </TouchableHighlight>
-                <View style={loginStyles.signUp}>
-                    <Text style={loginStyles.newAccount}>Don't have Account ?</Text>
+            {access_token ? 
+                this.navigateToHome(access_token)
+                :                
+                <KeyboardAvoidingView behavior="position" enabled>
+                    <Text style={loginStyles.title}>EduRising</Text>
+                    <View style={loginStyles.label}>
+                        <Image source={username_icon} style={loginStyles.icon} />
+                        <TextInput
+                            style={loginStyles.usernametextinput}
+                            autoCorrect={false}
+                            placeholder="Username"
+                            autoFocus={false}
+                            underlineColorAndroid={'transparent'}
+                            onChangeText={(username) => { this.setState({ username : username, serverError : '' }) }}
+                            returnKeyType='next'
+                            onSubmitEditing={() => { this.passwordTextInput.focus() }}
+                            blurOnSubmit={false}
+                        />
+                    </View>
+                    <View style={loginStyles.label}>
+                        <Image source={password_icon} style={loginStyles.icon}/>
+                        <TextInput 
+                            style={loginStyles.usernametextinput}
+                            autoCorrect={false}
+                            placeholder="Password"
+                            secureTextEntry={true}
+                            autoFocus={false}
+                            underlineColorAndroid={'transparent'}
+                            onChangeText={(password) => { this.setState({ password : password, serverError : '' }) }}
+                            returnKeyType='go'
+                            ref={(passwordInput) => { this.passwordTextInput = passwordInput }}
+                        />
+                    </View>
+                    <Text style={loginStyles.serverError}>{this.props.serverError === '' ? null : this.props.serverError}</Text>
                     <TouchableHighlight
-                        onPress={this.handleSignUp} 
-                        underlayColor='transparent'>
-                        <Text style={loginStyles.signUpButton}>SIGN UP</Text>
+                        style={loginStyles.signinButtonContainer}
+                        onPress={ () => this.handleSubmit(this.state.username, this.state.password) }
+                        underlayColor='#1f90cc'>
+                        <Text style={loginStyles.signinButtonText}>SIGN IN</Text>
                     </TouchableHighlight>
-                </View>
+                    <TouchableHighlight
+                        onPress={() => this.props.navigation.navigate('ForgotPassword')}
+                        underlayColor='transparent'>
+                        <Text style={loginStyles.forgotPassword}y>Forgot Password ?</Text>
+                    </TouchableHighlight>
+                    <View style={loginStyles.signUp}>
+                        <Text style={loginStyles.newAccount}>Don't have Account ?</Text>
+                        <TouchableHighlight
+                            onPress={() => this.props.navigation.navigate('SignUp')}
+                            underlayColor='transparent'>
+                            <Text style={loginStyles.signUpButton}>SIGN UP</Text>
+                        </TouchableHighlight>
+                    </View>
                 </KeyboardAvoidingView>
+            }
             </View>
-        )
+            )
     }
 }
 
 const mapStateToProps = state => ({
-    userDetails : state.login.userDetails,
+    access_token : state.login.access_token,
     serverError: state.login.serverError,
-    status: state.login.status
+    status: state.login.status,
+    requesting : state.login.requesting
 })
 
 const mapDispatchToProps = dispatch => ({

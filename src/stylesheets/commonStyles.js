@@ -7,5 +7,11 @@ export default styles = StyleSheet.create({
     backButtonText: {
         color: '#FFF',
         fontSize: 16,
+    },
+    loader : {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        backgroundColor: 'transparent',
     }
 })

@@ -1,58 +1,53 @@
 import React, { Component } from 'react'
-import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { withNavigation } from 'react-navigation'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
 
 import API from '../../utilities/api'
+import { fetchUserInfo } from '../../actions/profile/profileActions'
 import ProfileInfo from './ProfileInfo'
 import homeStyles from '../../stylesheets/homeStyles'
 import auth from '../../utilities/auth';
 import CONSTANT from '../../utilities/constant';
+import Loader from '../common/Loader';
 
 const data = ['Exams', 'TimeTable', 'HomeWork', 'Attendance', 'Events', 'Fees', 'Calendar', 'Contact Us'];
 
 class HomePage extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            credentials : {},
+            isRequesting: true,
             userdata : {},
         }
     }
-    componentDidMount() {
-        auth.getTheTokens(CONSTANT.AUTHENTICATION.AUTH_TOKEN).then( res => {
-            console.log(res)
-                if(res !=null){
-                    this.setState({ credentials : res[0] })
-                    
+
+    componentDidMount(){
+        auth.getTheToken(CONSTANT.AUTHENTICATION.ACCESS_TOKEN)
+            .then( res => {
+                if(res!=null){
+                    this.props.fetchUserInfo(res)
+                    this.setState({ isRequesting : false })              
                 } else {
+                    this.setState({ isRequesting : false })
                     return null;
                 }
             }).catch(err => {
-                console.log(err)
+                this.setState({ serverError : err, isRequesting : false })
             })
     }
 
-     fetchUserData = (credentials) => {
-        API.getApiCall(`http://192.168.1.5:8080/users/info${credentials}`)
-            .then(dataset => {
-                if(dataset != null){
-                    this.setState({
-                        userdata : dataset.data
-                    })
-                }
-            })
-            .catch( err => {
-                this.setState({ error : err })
-            })
-        }
-
     render() {
-        const { credentials } = this.state
-        const userdata = this.fetchUserData(credentials)
+        if(this.state.isRequesting){
+           return <Loader />
+        }
+        if(this.state.serverError){
+            alert(this.state.serverError)
+        }
         return(
             <View style={homeStyles.container}>
-                <ProfileInfo />
+                <ProfileInfo userdata={this.props.userDetails}/>
                 <View style={homeStyles.titlesWrap}>
                     {data.map( entry => {
                         return(
@@ -74,4 +69,15 @@ class HomePage extends Component {
     }
 }
 
-export default connect()(withNavigation(HomePage))
+const mapStateToProps = state => ({
+    userDetails : state.profile.userDetails,
+    serverError: state.profile.serverError,
+    status: state.profile.status,
+    requesting : state.profile.requesting
+})
+
+const mapDispatchToProps = dispatch => ({
+    fetchUserInfo: bindActionCreators(fetchUserInfo, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withNavigation(HomePage))

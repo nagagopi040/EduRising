@@ -17,7 +17,7 @@ export default function (state = initialState, action) {
 				...state,
 				requesting: false,
 				requested: true,
-				userDetails: action.userDetails,
+				access_token: action.access_token,
 				serverError: action.serverError,
 				status: action.status,
 			};
@@ -26,7 +26,7 @@ export default function (state = initialState, action) {
 				...state,
 				requesting: false,
 				requested: false,
-				userDetails: {},
+				access_token: '',
 				serverError: action.serverError,
 				status: action.status,
 			}

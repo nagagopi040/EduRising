@@ -1,19 +1,34 @@
 import React,  { Component } from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableHighlight } from 'react-native'
 import { withNavigation } from 'react-navigation'
 
 import profileStyles from '../../stylesheets/profileStyles'
+import Loader from '../common/Loader';
 
 class ProfileInfo extends Component {
     render() {
+        const { userdata } = this.props
+        if(!userdata){
+            return <Loader />
+        }
         return(
             <View style={profileStyles.profileContainer}>
-                <Image source = {require('../../images/user.png')} style={profileStyles.profileImage} />
-                <View>
-                    <Text>Anirudh</Text>
-                    <Text>Class-9A</Text>
+                <TouchableHighlight
+                    style={profileStyles.profileImageView}
+                    onPress={ () => this.props.navigation.navigate('UserProfile') }
+                    underlayColor='transparent'>
+                    <Image source = {require('../../images/user.png')} style={profileStyles.profileImage} />
+                </TouchableHighlight>
+                <View style={profileStyles.profileContent}>
+                    <Text>{userdata.fullName}</Text>
+                    <Text>{userdata.class}</Text>
                 </View>
-                <Image source = {require('../../images/notification.png')} style={profileStyles.profileImage} />
+                <TouchableHighlight
+                    style={profileStyles.notificationView}
+                    onPress={ () => this.props.navigation.navigate('Notification') }
+                    underlayColor='transparent'>
+                    <Image source = {require('../../images/notification.png')} style={profileStyles.notificationIcon} />
+                </TouchableHighlight>
             </View>
         )
     }

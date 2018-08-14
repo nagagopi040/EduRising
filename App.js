@@ -3,33 +3,42 @@ import { Provider } from 'react-redux';
 import { ActivityIndicator } from 'react-native'
 
 import store from './src/store'
-import { rootNavigation } from './src/navigation/RootNavigatior'
+import { rootNavigation } from './src/navigation/RootNavigation'
 import auth from './src/utilities/auth'
 import CONSTANT from './src/utilities/constant'
+import Loader from './src/components/common/Loader';
 
 export default class App extends Component {
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
 		this.state = {
-			signedIn : false,
+			isRequesting : true,
+			isSignedIn : false
 		}
 	}
 
-	componentDidMount(){
-		// auth.onSignOut(CONSTANT.AUTHENTICATION.AUTH_TOKEN)
-		auth.isSignedIn(CONSTANT.AUTHENTICATION.AUTH_TOKEN).then( res => {
-			this.setState({ signedIn : res })
-		}).catch(err => {
-			console.log(err)
-		})
+	componentDidMount() {
+		auth.isSignedIn(CONSTANT.AUTHENTICATION.ACCESS_TOKEN)
+            .then( res => {
+                if(res){
+					this.setState({ isSignedIn: res, isRequesting : false })
+                } else {
+                    this.setState({ isSignedIn: false, isRequesting : false })
+                }
+            }).catch(err => {
+                this.setState({ serverError : err , isRequesting : false })
+            })
 	}
 
 	render() {
-		const {signedIn} = this.state
-		const RootNavigator = rootNavigation(signedIn)
+		const { isSignedIn, isRequesting } = this.state
+		const RootNavigation = rootNavigation(isSignedIn)
+		if(isRequesting){
+			return <Loader />
+		}
 		return (
 			<Provider store={store}>
-				<RootNavigator />
+				<RootNavigation />
 			</Provider>
 		);
 	}
