@@ -12,7 +12,7 @@ import auth from '../../utilities/auth';
 import CONSTANT from '../../utilities/constant';
 import Loader from '../common/Loader';
 
-const data = ['Exams', 'TimeTable', 'HomeWork', 'Attendance', 'Events', 'Fees', 'Calendar', 'Contact Us'];
+const data = ['ExamsAndTests', 'TimeTable', 'HomeWork', 'Attendance', 'Events', 'Fees', 'Calendar', 'Contact Us'];
 
 class HomePage extends Component {
     constructor(props) {

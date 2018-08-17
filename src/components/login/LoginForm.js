@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image, TextInput, TouchableHighlight, KeyboardAvoidingView, ActivityIndicator } from 'react-native';
+import { Text, View, Image, TextInput, TouchableHighlight, KeyboardAvoidingView } from 'react-native';
 import { withNavigation } from 'react-navigation'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
@@ -47,7 +47,7 @@ class LoginForm extends Component {
             <View style={loginStyles.container}>
             {access_token ? 
                 this.navigateToHome(access_token)
-                :                
+                :
                 <KeyboardAvoidingView behavior="position" enabled>
                     <Text style={loginStyles.title}>EduRising</Text>
                     <View style={loginStyles.label}>

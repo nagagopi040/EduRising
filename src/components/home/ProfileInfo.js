@@ -15,7 +15,7 @@ class ProfileInfo extends Component {
             <View style={profileStyles.profileContainer}>
                 <TouchableHighlight
                     style={profileStyles.profileImageView}
-                    onPress={ () => this.props.navigation.navigate('UserProfile') }
+                    onPress={ () => this.props.navigation.navigate('UserProfile', { userdata : userdata }) }
                     underlayColor='transparent'>
                     <Image source = {require('../../images/user.png')} style={profileStyles.profileImage} />
                 </TouchableHighlight>
@@ -25,7 +25,7 @@ class ProfileInfo extends Component {
                 </View>
                 <TouchableHighlight
                     style={profileStyles.notificationView}
-                    onPress={ () => this.props.navigation.navigate('Notification') }
+                    onPress={ () => this.props.navigation.navigate('Notification',) }
                     underlayColor='transparent'>
                     <Image source = {require('../../images/notification.png')} style={profileStyles.notificationIcon} />
                 </TouchableHighlight>

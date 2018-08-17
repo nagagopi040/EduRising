@@ -1,8 +1,5 @@
 import { AsyncStorage } from "react-native";
 
-const USER_KEY = "username";
-const PASS_KEY = "password";
-
 const auth = {
     async onSignIn(key, item) {
         try {

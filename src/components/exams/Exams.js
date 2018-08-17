@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
-import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native'
 import { withNavigation } from 'react-navigation'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
 
-class Exams extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-
-        }
-    }
-    
-    render() {
-        return (
+class Exams extends Component{
+    render(){
+        return(
             <View>
                 <Text>Exams</Text>
             </View>

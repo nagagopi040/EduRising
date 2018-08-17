@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { Provider } from 'react-redux';
 import { ActivityIndicator } from 'react-native'
+import { YellowBox } from 'react-native';
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 import store from './src/store'
 import { rootNavigation } from './src/navigation/RootNavigation'

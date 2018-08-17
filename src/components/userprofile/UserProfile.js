@@ -3,21 +3,19 @@ import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpac
 import { withNavigation } from 'react-navigation'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
+
+import styles from '../../stylesheets/commonStyles'
+import userStyles from '../../stylesheets/userStyles'
 import auth from '../../utilities/auth';
 import CONSTANT from '../../utilities/constant';
+import { fetchUserInfo } from '../../actions/profile/profileActions'
 
 class UserProfile extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-
-        }
-    }
     handleSignOut = () => {
         auth.onSignOut(CONSTANT.AUTHENTICATION.ACCESS_TOKEN)
             .then( res => {
                 if(res) {
-                    this.props.navigation.navigate('Login')
+                    return true
                 }
             }).catch(err => {
                 alert("something went wrong",err)
@@ -25,13 +23,24 @@ class UserProfile extends Component {
     }
 
     render() {
+        const { userdata } = this.props.navigation.state.params
         return(
-            <View>
-                <Text>UserProfile</Text>
+            <View style={styles.mainContainer}>
+                <View style={userStyles.profileContainer} >
+                    <View style={userStyles.profileImageContainer}>
+                        <Image source={require('../../images/user.png')} style={userStyles.profileImage}/>
+                    </View>
+                </View>
+                <View>
+                    <Text style={[styles.centerText, userStyles.text24]}>{userdata.fullName} | {userdata.studentID}</Text>
+                    <Text style={[styles.centerText, userStyles.text20]}></Text>
+                    <Text style={[styles.centerText, userStyles.text20]}>{userdata.email}</Text>
+                    <Text style={[styles.centerText, userStyles.text20]}>{userdata.class}</Text>
+                </View>
                 <TouchableHighlight
-                    onPress={this.handleSignOut}
+                    onPress={() => this.props.navigation.navigate({routeName : 'LoginRouter'})}
                     underlayColor='transparent'>
-                    <Text>Logout</Text>
+                    <Text style={[styles.centerText]}>Logout</Text>
                 </TouchableHighlight>
             </View>
         )
