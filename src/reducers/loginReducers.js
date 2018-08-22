@@ -10,25 +10,24 @@ export default function (state = initialState, action) {
 		case LOGIN_REQUEST:
 			return {
 				...state,
-				requesting: true,
+				requesting: true
 			};
 		case LOGIN_REQUEST_SUCCEDED:
 			return {
 				...state,
 				requesting: false,
 				requested: true,
-				access_token: action.access_token,
-				serverError: action.serverError,
-				status: action.status,
+				userDetails: action.userDetails,
+				serverError: null
 			};
 		case LOGIN_REQUEST_FAILED:
 			return {
 				...state,
 				requesting: false,
 				requested: false,
-				access_token: '',
+				userDetails: {},
 				serverError: action.serverError,
-				status: action.status,
+				message: action.message,
 			}
 		default:
 			return state;

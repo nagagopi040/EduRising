@@ -13,10 +13,7 @@ export default styles = StyleSheet.create({
         borderWidth: 2,
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: Dimensions.get('window').width * 0.05,
-        marginRight: Dimensions.get('window').width * 0.05,
-        marginBottom: Dimensions.get('window').width * 0.045,
-        marginTop: Dimensions.get('window').width * 0.045,
+        margin: 20
     },
     titlesWrap: {
         flexDirection: 'row',

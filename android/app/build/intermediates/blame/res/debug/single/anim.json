@@ -1,71 +1,7 @@
 [
     {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
-    },
-    {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\abc_slide_out_top.xml"
-    },
-    {
         "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_in.xml",
         "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\5844786ddc5e25525b7882e547ac09eea99ee201\\output\\res\\anim\\catalyst_push_up_in.xml"
-    },
-    {
-        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_slide_in_top.xml"
-    },
-    {
-        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
-        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_slide_out_bottom.xml"
-    },
-    {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\abc_slide_in_bottom.xml"
-    },
-    {
-        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_out.xml",
-        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\5844786ddc5e25525b7882e547ac09eea99ee201\\output\\res\\anim\\catalyst_push_up_out.xml"
-    },
-    {
-        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
-        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_popup_exit.xml"
-    },
-    {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\abc_fade_out.xml"
-    },
-    {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\tooltip_exit.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\tooltip_exit.xml"
-    },
-    {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_slide_up.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\8c607f81362a10cfc40649760297a1715a454b31\\output\\res\\anim\\catalyst_slide_up.xml"
-    },
-    {
-        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_fade_in.xml"
-    },
-    {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_in.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\8c607f81362a10cfc40649760297a1715a454b31\\output\\res\\anim\\catalyst_push_up_in.xml"
-    },
-    {
-        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_slide_down.xml",
-        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\5844786ddc5e25525b7882e547ac09eea99ee201\\output\\res\\anim\\catalyst_slide_down.xml"
-    },
-    {
-        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\abc_slide_in_top.xml"
     },
     {
         "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_slide_up.xml",
@@ -76,32 +12,24 @@
         "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\abc_popup_exit.xml"
-    },
-    {
         "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
         "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_popup_enter.xml"
     },
     {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\tooltip_enter.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\tooltip_enter.xml"
+        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_slide_in_top.xml"
     },
     {
         "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
         "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_slide_out_top.xml"
     },
     {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_fade_in.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\8c607f81362a10cfc40649760297a1715a454b31\\output\\res\\anim\\catalyst_fade_in.xml"
+        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
         "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
         "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_fade_out.xml"
-    },
-    {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\abc_popup_enter.xml"
     },
     {
         "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_fade_out.xml",
@@ -112,32 +40,32 @@
         "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\tooltip_enter.xml"
     },
     {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\abc_fade_in.xml"
+        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_out.xml",
+        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\5844786ddc5e25525b7882e547ac09eea99ee201\\output\\res\\anim\\catalyst_push_up_out.xml"
     },
     {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_fade_out.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\8c607f81362a10cfc40649760297a1715a454b31\\output\\res\\anim\\catalyst_fade_out.xml"
+        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_popup_exit.xml"
     },
     {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\anim\\abc_slide_out_bottom.xml"
+        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_slide_down.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\8c607f81362a10cfc40649760297a1715a454b31\\output\\res\\anim\\catalyst_slide_down.xml"
+        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_slide_down.xml",
+        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\5844786ddc5e25525b7882e547ac09eea99ee201\\output\\res\\anim\\catalyst_slide_down.xml"
     },
     {
         "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
         "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_out.xml",
-        "source": "C:\\Users\\Naga Gopi\\.android\\build-cache\\8c607f81362a10cfc40649760297a1715a454b31\\output\\res\\anim\\catalyst_push_up_out.xml"
-    },
-    {
         "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\tooltip_exit.xml",
         "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\tooltip_exit.xml"
+    },
+    {
+        "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\nagagopiraju_n\\.android\\build-cache\\e26aef37277d98a3c45b8a92a5f51c22b1a2da80\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     },
     {
         "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_fade_in.xml",

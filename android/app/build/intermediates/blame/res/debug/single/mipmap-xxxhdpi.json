@@ -1,13 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher_round.png",
-        "source": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
-    },
-    {
-        "merged": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
-        "source": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher_round.png",
         "source": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },

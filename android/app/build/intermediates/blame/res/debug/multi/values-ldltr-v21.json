@@ -1,29 +1,5 @@
 [
     {
-        "outputFile": "C:\\Users\\Naga Gopi\\Desktop\\EduRising\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 112,
-                    "endOffset": 163
-                },
-                "from": {
-                    "file": "C:\\Users\\Naga Gopi\\.android\\build-cache\\7353baa7b7eb3ec865e33c5d4c762ea7d67c29c3\\output\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 112,
-                        "endOffset": 163
-                    }
-                }
-            }
-        ]
-    },
-    {
         "outputFile": "C:\\Users\\nagagopiraju_n\\Documents\\EduRising\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
         "map": [
             {
