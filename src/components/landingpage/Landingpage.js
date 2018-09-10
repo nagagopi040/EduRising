@@ -12,8 +12,10 @@ class Landingpage extends Component {
         const userInfo = this.props.navigation.state
         console.log("userInfo", userInfo)
         return(
-            <View style={homeStyles.container}>
+            <View style={{backgroundColor:'#FDFFFC'}}>
                 <ProfileInfo />
+            <View style={homeStyles.container}>
+                
                 <View style={homeStyles.titlesWrap}>
                     {data.map( entry => {
                         return(
@@ -30,6 +32,7 @@ class Landingpage extends Component {
                         )
                     })}
                 </View>
+            </View>
             </View>
         )
     }
