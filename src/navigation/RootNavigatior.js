@@ -5,6 +5,7 @@ import { TouchableHighlight, Text, Dimensions, View } from 'react-native'
 import LoginPage from '../containers/login/LoginPage'
 import LandingPage from '../components/landingpage/Landingpage'
 import Exams from '../components/exams/Exams'
+import Notification from '../components/notificationpage/notification';
 import styles from '../stylesheets/commonStyles'
 
 export default RootStack = createStackNavigator({
@@ -19,6 +20,20 @@ export default RootStack = createStackNavigator({
         navigationOptions: {
             header: null,
         }
+    },
+    Notification:{
+        screen:Notification,
+        navigationOptions:({navigation}) => ({
+            title:"Notification",
+            headerStyle:{
+                backgroundColor:'#0093C7'
+            },
+            mode:'modal',
+            headerTitleStyle:{
+                fontWeight:'bold',
+                fontSize:24
+            }
+        })
     },
     Exams: {
         screen: Exams,

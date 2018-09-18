@@ -2,7 +2,8 @@ import { StyleSheet, Dimensions } from 'react-native'
 
 export default styles = StyleSheet.create({
     container: {
-        margin: 15,
+        margin: 20,
+        paddingTop:Dimensions.get('window').height * 0.10,
         flexDirection: 'column'
     },
     header: {
@@ -22,6 +23,13 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         margin: 20
     },
+    modal: {
+        height: Dimensions.get('window').height,
+        width: Dimensions.get('window').width ,
+        position: 'absolute',
+        top:0,
+        left:0
+      },
     titlesWrap: {
         flexDirection: 'row',
         flexWrap: 'wrap'
