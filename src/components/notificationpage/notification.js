@@ -23,7 +23,7 @@ class Notification extends Component{
                             return (
                                 <View style={{
                                     borderColor:'#0093C7',
-                                    borderWidth:2,
+                                    borderWidth:1.3,
                                     borderRadius:10,
                                     shadowColor:'#95C9F1',
                                     shadowOffset: {width: 0.7,height: 0.7},
@@ -38,8 +38,8 @@ class Notification extends Component{
                                                     height: Dimensions.get('window').width * 0.11}} />
                                     </View>
                                     <View style={{flex:8,flexDirection:'column'}}>
-                                        <Text style={{fontSize:15,color:"#0093C7",marginBottom:10}}>{data.noteHeader}</Text>
-                                        <Text style={{fontSize:10}}>{data.note}</Text>
+                                        <Text style={{fontSize:15,color:"#0093C7",marginBottom:7}}>{data.noteHeader}</Text>
+                                        <Text style={{fontSize:13}}>{data.note}</Text>
                                     </View>
                                     </View>
                         )
