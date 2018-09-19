@@ -2,19 +2,19 @@ import { createStackNavigator } from 'react-navigation';
 import React from 'react'
 import { TouchableHighlight, Text, Dimensions, View } from 'react-native'
 
-// import LoginPage from '../components/login/LoginForm'
+import LoginPage from '../containers/login/LoginPage'
 import LandingPage from '../components/landingpage/Landingpage'
 import Exams from '../components/exams/Exams'
 import Notification from '../components/notificationpage/notification';
 import styles from '../stylesheets/commonStyles'
 
 export default RootStack = createStackNavigator({
-    // Login: {
-    //     screen: LoginPage,
-    //     navigationOptions: {
-    //         header: null,
-    //     },
-    // },
+    Login: {
+        screen: LoginPage,
+        navigationOptions: {
+            header: null,
+        },
+    },
     Home: {
         screen: LandingPage,
         navigationOptions: {
@@ -63,5 +63,5 @@ export default RootStack = createStackNavigator({
         })
     },
 }, {
-    initialRouteName: 'Home'
+    initialRouteName: 'Login'
 });
