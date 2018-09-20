@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image, TextInput, Button, TouchableHighlight, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Text, View, Image, TextInput, Button,Dimensions,Animated,TouchableHighlight, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { withNavigation } from 'react-navigation'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
@@ -8,11 +8,16 @@ import API from '../../utilities/api'
 import { fetchUserInfo } from '../../actions/profile/profileActions'
 import ProfileInfo from './ProfileInfo'
 import homeStyles from '../../stylesheets/homeStyles'
+import Notification from '../notification/Notifications';
 import auth from '../../utilities/auth';
 import CONSTANT from '../../utilities/constant';
 import Loader from '../common/Loader';
+import profileStyles from '../../stylesheets/profileStyles'
+
 
 const data = ['ExamsAndTests', 'TimeTable', 'HomeWork', 'Attendance', 'Events', 'Fees', 'Calendar', 'Contact Us'];
+const deviceHeight = Dimensions.get('window').height;
+const deviceWidth = Dimensions.get('window').width;
 
 class HomePage extends Component {
     constructor(props) {
@@ -20,6 +25,7 @@ class HomePage extends Component {
         this.state = {
             isRequesting: true,
             userdata : {},
+            modalY:new Animated.Value(-deviceHeight)
         }
     }
 
@@ -38,6 +44,20 @@ class HomePage extends Component {
             })
     }
 
+    openModal(state) {
+        Animated.timing(state.modalY, {
+            duration: 300,
+            toValue: 0
+         }).start();
+      }
+    
+      closeModal() {
+        Animated.timing(this.state.modalY, {
+            duration: 300,
+            toValue: -deviceHeight
+         }).start();
+      }
+
     render() {
         if(this.state.isRequesting){
            return <Loader />
@@ -46,8 +66,14 @@ class HomePage extends Component {
             alert(this.state.serverError)
         }
         return(
-            <View style={homeStyles.container}>
+            <View style={{backgroundColor:'#FDFFFC'}}>
+                <View>
                 <ProfileInfo userdata={this.props.userDetails}/>
+                    <TouchableHighlight onPress={()=>this.openModal(this.state)} style={[profileStyles.nameContainer,{flex:2}]}>
+                        <Image source = {require('../../images/username_icon.png')} style={profileStyles.notificationIconImage} />
+                    </TouchableHighlight>
+                </View>
+            <View style={homeStyles.container}>
                 <View style={homeStyles.titlesWrap}>
                     {data.map( entry => {
                         return(
@@ -65,7 +91,22 @@ class HomePage extends Component {
                     })}
                 </View>
             </View>
+            {this.renderNotificationPage()}
+            </View>
         )
+    }
+
+
+    renderNotificationPage(){
+        return <Notification modalY={this.state.modalY} closeModal={this.closeModal.bind(this)}/>
+    }
+
+    callNotification(context){
+        console.log("Came here")
+        Animated.timing(context.state.modalY,{
+            duration:300,
+            toValue:0,
+        }).start();
     }
 }
 

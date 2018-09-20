@@ -1,0 +1,16 @@
+{
+    "today":[
+        {
+            "note":"Class test-2 starts from 12TH December,2018.Please check the Calendar.",
+            "noteHeader": "Class Test-2"
+        },
+        {
+            "note":"Complete Maths Homework",
+            "noteHeader": "HomeWork"
+        },
+        {
+            "note":"Anirudh didnot turnup to school today" ,
+            "noteHeader": "Absent"
+        }
+    ]   
+}
