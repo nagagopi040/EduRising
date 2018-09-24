@@ -1,17 +1,27 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
-import { withNavigation } from 'react-navigation'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux';
+import React, {Component} from 'react';
+import {Text, Button, View, Dimensions} from 'react-native';
+import {withNavigation, createMaterialTopTabNavigator} from 'react-navigation'; 
+import ForeNoon from '../timeTable/ForeNoon'
+import AfterNoon from '../timeTable/AfterNoon'
 
-class TimeTable extends Component{
-    render(){
-        return(
-            <View>
-                <Text> TimeTable </Text>
-            </View>
-        )
+const routeconfig = {
+    Forenoon : {screen: ForeNoon},
+    Afternoon: {screen: AfterNoon} 
+}
+
+const tabNavConfig = {
+    tabBarPosition: 'top',
+    tabBarOptions: {
+        activeTintColor:'#000',
+        inactiveTintColor:'#000',
+        indicatorStyle: {
+            backgroundColor: '#1f3b81',
+            height: Dimensions.get('window').height * 0.008
+        },
+        style: {
+            backgroundColor: '#fff'
+        }
     }
 }
 
-export default withNavigation(TimeTable)
+export default timetableNav = createMaterialTopTabNavigator(routeconfig, tabNavConfig)

@@ -1,0 +1,16 @@
+{ 
+    "days" : {
+        "day1": "MON",
+        "day2": "TUE",
+        "day3": "WED",
+        "day4": "THU",
+        "day5": "FRI",
+        "day6": "SAT"
+    },
+    "ped": {
+        "one":"tamil",
+        "two":"english",
+        "third":"Maths",
+        "fourth":"science"
+    }
+}

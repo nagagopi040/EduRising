@@ -8,7 +8,7 @@ import ExamsAndTests from '../components/exams/ExamsAndTests'
 import ForgotPassword from '../components/login/ForgotPassword'
 import UserProfile from '../components/userprofile/UserProfile';
 import Notifications from '../components/notification/Notifications';
-import TimeTable from '../components/timetable/Timetable';
+import timeTable from '../components/timeTable/Timetable'
 
 export const LoginRouter  = createStackNavigator({
     Login: {
@@ -92,26 +92,26 @@ export const HomeRouter = createStackNavigator({
             )
         }
     },
-    TimeTable: {
-        screen: TimeTable,
-        navigationOptions: {
-            title: 'Exams&Tests',
+    timeTable: {
+        screen: timeTable,
+        navigationOptions: ({navigation}) => ({
+            title: 'TimeTables',
             headerStyle: {
-                backgroundColor: '#1f3b81',
+                backgroundColor: '#1f3b81',               
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
                 fontWeight: 'bold',
-                textAlign: 'center',
                 fontSize: 24,
-                alignSelf: 'center',
+                flex: 1,
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
+                textAlign: 'left'
             },
             headerBackTitle: 'Back',
-            headerRight: (
-                <Text></Text>
-            )
-        }
-    }
+        })
+    },
+
 });
 
 export const rootNavigation = (signedIn = false) =>{
