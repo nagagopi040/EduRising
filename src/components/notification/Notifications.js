@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import {View,Text,Modal,Animated,Image,Dimensions,StyleSheet} from 'react-native';
+import {View,Text,Modal,Animated,Image,Dimensions,TouchableHighlight,StyleSheet} from 'react-native';
 import notificationJson from '../../json/notificationJson';
 import { withNavigation } from 'react-navigation';
 
@@ -13,7 +13,7 @@ class Notification extends Component{
         return(
             <Animated.View style={[ styles.modal, { transform: [{translateY: this.props.modalY}] }]}>
                     <View style={styles.notificationHeader}>
-                        <Text style={styles.backButton}  onPress={()=>this.props.closeModal()}>&larr;</Text>
+                        <TouchableHighlight onPress={()=>this.props.closeModal()}><Text style={styles.backButton}>&larr;</Text></TouchableHighlight>
                         <View style={styles.flex8}>
                             <Text style={styles.notificationText}>Notification</Text>
                         </View>
@@ -74,13 +74,14 @@ const styles=StyleSheet.create({
         fontSize:20,
         color:'#fff',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        padding:10
     },
     flex8:{
         flex:5
     },
     notificationText:{
-        fontSize:20,
+        fontSize:25,
         textAlign:'center',
         color:'#fff'
     },
