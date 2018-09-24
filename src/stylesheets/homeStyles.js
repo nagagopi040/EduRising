@@ -18,7 +18,7 @@ export default styles = StyleSheet.create({
         shadowOffset: {width: 0.5,height: 0.5},
         shadowOpacity:10,
         shadowRadius:8,
-        borderWidth: 2,
+        borderWidth: StyleSheet.hairlineWidth,
         justifyContent: 'center',
         alignItems: 'center',
         margin: 20
@@ -45,6 +45,7 @@ export default styles = StyleSheet.create({
     },
     headerText: {
         textAlign: 'center',
-        fontSize: 18,
+        paddingTop:10,
+        fontSize: 15,
     }
 })
