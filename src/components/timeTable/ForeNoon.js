@@ -24,7 +24,7 @@ export default class ForeNoon extends Component {
                     </View>
                     <ScrollView>
                     <View style={{flex: 1, flexDirection:'column'}}>
-                    {Object.values(foreNoonJson.days).map( function(data)
+                    {/* {Object.values(foreNoonJson.days).map( function(data)
                             {
                                 console.log("dadada", data)
                                  return Object.values(data).map((data)=> {
@@ -39,7 +39,19 @@ export default class ForeNoon extends Component {
                              })
                             
                            }
-                       )} 
+                       )}  */}
+                       { foreNoonJson.periods.map((data)=>{
+                           console.log("data ===>",data);
+                            return data.map((inData)=>{
+                                return (<TouchableHighlight style = {timeTableStyles.rowOfSubject}>
+                                        <View style={timeTableStyles.noOfDays}>
+                                            <Text style= {{fontWeight: 'bold', fontSize: 16 }}>{inData}</Text>
+                                        </View>
+                                </TouchableHighlight>)
+                           })
+                       })
+
+                       }
                         </View>
                         </ScrollView>
                 </View>
