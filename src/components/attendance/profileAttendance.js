@@ -41,8 +41,41 @@ class Attendance extends Component{
                         </View>
                         </View>
                     </View>
-                <View style={{borderColor:'red',flex:2,borderWidth:StyleSheet.hairlineWidth}}><Text>Attendance</Text></View>
-                <View style={{borderColor:'red',flex:6,borderWidth:StyleSheet.hairlineWidth}}><Text>Attendance</Text></View>
+                <View style={{borderColor:'red',flex:2,borderWidth:StyleSheet.hairlineWidth,justifyContent:'center',alignItems:'center'}}>
+                    <View style={{ 
+                                    // width:Dimensions.get('window').width*0.7,
+                                    // height:Dimensions.get('window').height*0.13,
+                                    flexDirection:'row',
+                                    justifyContent:'space-between'
+                                    }}>
+                            <View style={{
+                                    width:Dimensions.get('window').width*0.2,
+                                    height:Dimensions.get('window').height*0.13,
+                                    borderColor:'black',
+                                    borderWidth:2,
+                                    backgroundColor:'#fff',
+                                    flexDirection:'column'}}>
+                                    <Text>10</Text>
+                                    <Text>Working Days</Text>
+                                    </View>
+                            <View style={{
+                                    width:Dimensions.get('window').width*0.2,
+                                    height:Dimensions.get('window').height*0.13,
+                                    borderColor:'black',
+                                    borderWidth:2,
+                                    backgroundColor:'#fff',
+                                    flexDirection:'column'}}><Text>Attendance</Text></View>
+                            <View style={{
+                                    width:Dimensions.get('window').width*0.2,
+                                    height:Dimensions.get('window').height*0.13,
+                                    borderColor:'black',
+                                    borderWidth:2,
+                                    backgroundColor:'#fff',
+                                    flexDirection:'column'}}><Text>Attendance</Text></View>
+                    </View>
+                    </View>
+                <View style={{borderColor:'red',flex:6,borderWidth:StyleSheet.hairlineWidth}}>
+                    <Text>Attendance</Text></View>
                 </View>
         )
     }
