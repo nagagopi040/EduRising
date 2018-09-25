@@ -36,9 +36,9 @@ class ProfileInfo extends Component {
                 <View style={profileStyles.profileContainer}>
                     <TouchableHighlight onPress={ () => this.props.navigation.navigate('UserProfile', { userdata : userdata }) }
                             underlayColor='transparent'>
-                        <Image source = {require('../../images/user.png')} style={profileStyles.profileImage} />
+                        <Image source = {require('../../images/profile.png')} style={profileStyles.profileImage} />
                     </TouchableHighlight>
-                    <View>
+                    <View style={{marginLeft:5}}>
                         <Text>{userdata.fullName}</Text>
                         <Text>{userdata.class} </Text>
                     </View>

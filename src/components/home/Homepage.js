@@ -15,7 +15,7 @@ import Loader from '../common/Loader';
 import profileStyles from '../../stylesheets/profileStyles'
 
 
-const data = ['ExamsAndTests', 'TimeTable', 'HomeWork', 'Attendance', 'Events', 'Fees', 'Calendar', 'Contact Us'];
+const data = ['Exams', 'TimeTable', 'HomeWork', 'Attendance', 'Events', 'Fees', 'Calendar', 'Contact Us'];
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
