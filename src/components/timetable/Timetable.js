@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Text, Button, View, Dimensions} from 'react-native';
 import {withNavigation, createMaterialTopTabNavigator} from 'react-navigation'; 
-import ForeNoon from '../timeTable/ForeNoon'
-import AfterNoon from '../timeTable/AfterNoon'
+import ForeNoon from '../timetable/ForeNoon'
+import AfterNoon from '../timetable/AfterNoon'
 
 const routeconfig = {
     Forenoon : {screen: ForeNoon},
